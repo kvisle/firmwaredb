@@ -9,11 +9,10 @@ can query, to check if their own systems are up to date.
 
 ## How do I use it with Icinga?
 
-Download fwdb.csv and check_firmware.  check_firmware should be run as a simple
-nrpe plugin.  It will attempt to look up firmwares in /var/lib/nagios/fwdb.csv,
-which can be overridden with the --fwdb= parameter.
+Download firmwaredb.csv and check_firmware.  check_firmware should be run as a simple
+nrpe plugin.  It will attempt to look up firmwares in /var/lib/nagios/firmwaredb.csv.
 
-# fwdb.csv
+# firmwaredb.csv
 
 This is the entire firmware database as a csv-file.
 
