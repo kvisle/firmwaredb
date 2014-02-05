@@ -69,10 +69,6 @@ BIOS       | HP     | ProLiant DL380 Gen8                                  | P73
 Controller | HP     | Smart Array P212, P410, P410i, P411, P712m, and P812 | HPSA01     | hpsa
 Controller | HP     | Smart Array P220i, P222, P420i, P420, and P421       | HPSA02     | hpsa
 
-# Is this a silly hack?
-
-Yes, but it works.
-
 # License (It's MIT)
 
 Copyright (C) 2014 Trygve Vea
