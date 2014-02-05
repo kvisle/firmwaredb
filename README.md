@@ -62,13 +62,15 @@ hopes that it will be useful.
 
 Type       | Vendor | Model                                                | Identifier | Script
 ---------- | ------ | ---------------------------------------------------- | ---------- | ------
+BIOS       | HP     | ProLiant BL465c G7                                   | A19        | hpbios
 BIOS       | HP     | ProLiant DL360 G6                                    | P64        | hpbios
 BIOS       | HP     | ProLiant DL380 G6                                    | P62        | hpbios
 BIOS       | HP     | ProLiant DL385 G6                                    | A22        | hpbios
 BIOS       | HP     | ProLiant DL360 G7                                    | P67        | hpbios
 BIOS       | HP     | ProLiant DL380 G7                                    | P68        | hpbios
-BIOS       | HP     | ProLiant DL360 Gen8                                  | P71        | hpbios
-BIOS       | HP     | ProLiant DL380 Gen8                                  | P73        | hpbios
+BIOS       | HP     | ProLiant DL360p Gen8                                 | P71        | hpbios
+BIOS       | HP     | ProLiant DL380e Gen8                                 | P73        | hpbios
+BIOS       | HP     | ProLiant ML110 G7/DL120 G7                           | J01        | hpbios
 Controller | HP     | Smart Array P212, P410, P410i, P411, P712m, and P812 | HPSA01     | hpsa
 Controller | HP     | Smart Array P220i, P222, P420i, P420, and P421       | HPSA02     | hpsa
 
