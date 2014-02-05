@@ -23,6 +23,7 @@ $dom->find('#tabContent table tr td table tr td')->each(sub {
       }
       $item = {
         'version'      => "$2/$3/$1",
+        'severity'     => 'Unknown'
       };
     }
   }
@@ -39,6 +40,7 @@ if ( $item ) {
 }
 
 my $critmap = {
+  'Unknown'  => 0,
   'Optional' => 1,
   'Recommended' => 2,
   'Critical' => 3

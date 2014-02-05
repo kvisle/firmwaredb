@@ -1,6 +1,15 @@
 #!/bin/bash
 
 
+# BIOS HP ProLiant DL360 G6 P64
+wget 'http://h20566.www2.hp.com/portal/site/hpsc/template.PAGE/public/psi/swdDetails/?sp4ts.oid=3884320&spf_p.tpst=swdMain&spf_p.prp_swdMain=wsrp-navigationalState%3Didx%253D%257CswItem%253DMTX_477c4d08c45a4c43a35e8e998e%257CswEnvOID%253D54%257CitemLocale%253D%257CswLang%253D%257Cmode%253D5%257Caction%253DdriverDocument&javax.portlet.begCacheTok=com.vignette.cachetoken&javax.portlet.endCacheTok=com.vignette.cachetoken' -O - -o /dev/null | perl hpbios P64 > out.d/hp_proliant_dl360_g6_p64.csv
+
+# BIOS HP ProLiant DL380 G6 P62
+wget 'http://h20566.www2.hp.com/portal/site/hpsc/template.PAGE/public/psi/swdDetails/?sp4ts.oid=3884083&spf_p.tpst=swdMain&spf_p.prp_swdMain=wsrp-navigationalState%3Didx%253D%257CswItem%253DMTX_9e620e12514142318ed0798627%257CswEnvOID%253D54%257CitemLocale%253D%257CswLang%253D%257Cmode%253D5%257Caction%253DdriverDocument&javax.portlet.begCacheTok=com.vignette.cachetoken&javax.portlet.endCacheTok=com.vignette.cachetoken' -O - -o /dev/null | perl hpbios P62 > out.d/hp_proliant_dl380_g6_p62.csv
+
+# BIOS HP ProLiant DL385 G6 A22
+wget 'http://h20566.www2.hp.com/portal/site/hpsc/template.PAGE/public/psi/swdDetails/?sp4ts.oid=3949988&spf_p.tpst=swdMain&spf_p.prp_swdMain=wsrp-navigationalState%3Didx%253D%257CswItem%253DMTX_c1f99afef146409088592d1b5b%257CswEnvOID%253D54%257CitemLocale%253D%257CswLang%253D%257Cmode%253D5%257Caction%253DdriverDocument&javax.portlet.begCacheTok=com.vignette.cachetoken&javax.portlet.endCacheTok=com.vignette.cachetoken' -O - -o /dev/null | perl hpbios A22 > out.d/hp_proliant_dl385_g6_a22.csv
+
 # BIOS HP ProLiant DL360 G7 P67
 wget 'http://h20565.www2.hp.com/portal/site/hpsc/template.PAGE/public/psi/swdDetails/?sp4ts.oid=4091432&spf_p.tpst=swdMain&spf_p.prp_swdMain=wsrp-navigationalState%3Didx%253D%257CswItem%253DMTX_797e7005efe54e278a5e68da4c%257CswEnvOID%253D54%257CitemLocale%253D%257CswLang%253D%257Cmode%253D5%257Caction%253DdriverDocument&javax.portlet.begCacheTok=com.vignette.cachetoken&javax.portlet.endCacheTok=com.vignette.cachetoken' -O - -o /dev/null | perl hpbios P67 > out.d/hp_proliant_dl360_g7_p67.csv
 

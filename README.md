@@ -62,6 +62,9 @@ hopes that it will be useful.
 
 Type       | Vendor | Model                                                | Identifier | Script
 ---------- | ------ | ---------------------------------------------------- | ---------- | ------
+BIOS       | HP     | ProLiant DL360 G6                                    | P64        | hpbios
+BIOS       | HP     | ProLiant DL380 G6                                    | P62        | hpbios
+BIOS       | HP     | ProLiant DL385 G6                                    | A22        | hpbios
 BIOS       | HP     | ProLiant DL360 G7                                    | P67        | hpbios
 BIOS       | HP     | ProLiant DL380 G7                                    | P68        | hpbios
 BIOS       | HP     | ProLiant DL360 Gen8                                  | P71        | hpbios
