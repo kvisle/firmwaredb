@@ -1,0 +1,49 @@
+#!/usr/bin/perl -w
+
+use Mojo::DOM;
+
+local $/;
+my $file = <STDIN>;
+
+my $dom = Mojo::DOM->new($file);
+
+my @firmwares;
+
+my $item;
+my $point;
+
+$dom->find('#tabContent table tr td table tr td')->each(sub {
+  my $res = shift;
+
+  my $out = $res->at('b');
+  if ( $out ) {
+    if ( $out =~ /<b>Version:(\d+)\.(\d+)<\/b>/ ) {
+      if ( $item ) {
+        push @firmwares, $item;
+      }
+      $item = {
+        'version'      => "$1.$2",
+      };
+    }
+  }
+
+  my $paragraph = $res->at('p');
+  if ( $paragraph ) {
+    if ( $paragraph =~ /<b>Upgrade Requirement:<\/b><br \/><b>(.*)<\/b>/ ) {
+      $item->{severity} = $1;
+    }
+  }
+});
+if ( $item ) {
+  push @firmwares, $item;
+}
+
+my $critmap = {
+  'Optional' => 1,
+  'Recommended' => 2,
+  'Critical' => 3
+};
+
+foreach(reverse @firmwares) {
+  print "\"Controller\",\"HP\",\"SmartArray\",\"$ARGV[0]\",\"$_->{version}\",$critmap->{$_->{severity}},\"$_->{severity}\"\n";# print encode_json({ 'P67' => [reverse @firmwares] });
+}
