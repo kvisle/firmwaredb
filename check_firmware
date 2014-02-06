@@ -84,7 +84,7 @@ sub read_fwdb {
     },
     'id' => {}
   };
-  open FILE, 'fwdb.csv';
+  open FILE, '/var/lib/nagios/firmwaredb.csv';
   while (<FILE>) {
     my @line = csvsplit($_);
 
@@ -98,7 +98,7 @@ sub read_fwdb {
                                                   'SeverityString' => $line[6] };
   }
   close FILE;
-  open FILE, 'fwdbid.csv';
+  open FILE, '/var/lib/nagios/firmwaredbid.csv';
   while (<FILE>) {
     my @line = csvsplit($_);
 
@@ -183,6 +183,7 @@ sub search_newest_fw {
     }
 
     if ( $_->{Version} eq $version ) {
+      $newer->{Severity} = 0;
       $matched = 1;
     }
   }
@@ -208,6 +209,11 @@ sub test_bios_hp {
     'Severity' => -1,
     'String'   => "Unknown BIOS version $bios->{date} for identifier $bios->{version} for vendor $bios->{vendor}\n"
   } unless $newer->{Severity} > -1;
+
+  return {
+    'Severity' => 0,
+    'String'   => "BIOS version $bios->{date} for identifier $bios->{version} is the newest we know.\n"
+  } unless $newer->{Severity} > 0;
 
   $newer->{String} = "BIOS update exist (Vendor grade: $newer->{SeverityString}), newest version is: '$bios->{version} $newer->{Version}'.";
 
@@ -246,10 +252,12 @@ sub test_hpacucli {
       else {
 #        print Dumper($_);
         my $res = search_newest_fw('Controller', $fwdb->{id}->{Controller}->{$_->{name}}, $_->{version});
-        if ( $res->{Severity} > -1 ) {
+        if ( $res->{Severity} > 0 ) {
           $res->{String} = "Controller update exist for $_->{name} (Vendor grade: $res->{SeverityString}), newest version is: '$res->{Version}'.";
+        } elsif ( $res->{Severity} == -1 ) {
+          $res->{String} = "Unknown Controller firmware version $_->{version} for $_->{name}\n";
         } else {
-          $res->{String} = "Unknown Controller firmware version $_->{version} for $_->{name}\n"
+          $res->{String} = "Controller firmware version $_->{version} for $_->{name} is the newest we know\n";
         }
         push @results, $res;
 #        print Dumper($res);
