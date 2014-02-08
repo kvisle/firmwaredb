@@ -71,8 +71,8 @@ BIOS       | HP     | ProLiant DL380 G7                                    | P68
 BIOS       | HP     | ProLiant DL360p Gen8                                 | P71        | hpbios
 BIOS       | HP     | ProLiant DL380e Gen8                                 | P73        | hpbios
 BIOS       | HP     | ProLiant ML110 G7/DL120 G7                           | J01        | hpbios
-Controller | HP     | Smart Array P212, P410, P410i, P411, P712m, and P812 | HPSA01     | hpsa
-Controller | HP     | Smart Array P220i, P222, P420i, P420, and P421       | HPSA02     | hpsa
+Controller | HP     | Smart Array P212, P410, P410i, P411, P712m, and P812 | HPSA02     | hpsa
+Controller | HP     | Smart Array P220i, P222, P420i, P420, and P421       | HPSA01     | hpsa
 
 # License (It's MIT)
 

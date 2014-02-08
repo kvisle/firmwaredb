@@ -17,7 +17,7 @@ $dom->find('#tabContent table tr td table tr td')->each(sub {
 
   my $out = $res->at('b');
   if ( $out ) {
-    if ( $out =~ /<b>Version:(\d+)\.(\d+)<\/b>/ ) {
+    if ( $out =~ /<b>Version:(\d+)\.(\d+).*<\/b>/ ) {
       if ( $item ) {
         push @firmwares, $item;
       }
