@@ -27,9 +27,9 @@ wget 'http://h20565.www2.hp.com/portal/site/hpsc/template.PAGE/public/psi/swdDet
 # BIOS HP ProLiant ML110 G7/DL120 G7 J01
 wget 'http://h20566.www2.hp.com/portal/site/hpsc/template.PAGE/public/psi/swdDetails/?sp4ts.oid=5075937&spf_p.tpst=swdMain&spf_p.prp_swdMain=wsrp-navigationalState%3Didx%253D%257CswItem%253DMTX_851465841a1d46cc97aa492c5b%257CswEnvOID%253D4103%257CitemLocale%253D%257CswLang%253D%257Cmode%253D5%257Caction%253DdriverDocument&javax.portlet.begCacheTok=com.vignette.cachetoken&javax.portlet.endCacheTok=com.vignette.cachetoken' -O - -o /dev/null | perl hpbios J01 > out.d/hp_proliant_ml110_g7_dl120_g7_j01.csv
 
-# Controller HP Smart Array P212, P410, P410i, P411, P712m, and P812 HPSA01
+# Controller HP Smart Array P220i, P222, P420i, P420, and P421 HPSA01
 wget 'http://h20566.www2.hp.com/portal/site/hpsc/template.PAGE/public/psi/swdDetails/?sp4ts.oid=5295170&spf_p.tpst=swdMain&spf_p.prp_swdMain=wsrp-navigationalState%3Didx%253D%257CswItem%253DMTX_3507b12867264ca0b5a9863bb9%257CswEnvOID%253D54%257CitemLocale%253D%257CswLang%253D%257Cmode%253D5%257Caction%253DdriverDocument&javax.portlet.begCacheTok=com.vignette.cachetoken&javax.portlet.endCacheTok=com.vignette.cachetoken' -O - -o /dev/null | perl hpsa HPSA01 > out.d/hp_smartarray_hpsa01.csv
 
-# Controller HP Smart Array P220i, P222, P420i, P420, and P421 HPSA02
+# Controller HP Smart Array P212, P410, P410i, P411, P712m, and P812 HPSA02
 wget 'http://h20566.www2.hp.com/portal/site/hpsc/template.PAGE/public/psi/swdDetails/?sp4ts.oid=3902575&spf_p.tpst=swdMain&spf_p.prp_swdMain=wsrp-navigationalState%3Didx%253D%257CswItem%253DMTX_3115935a307b43b886419a83d5%257CswEnvOID%253D54%257CitemLocale%253D%257CswLang%253D%257Cmode%253D5%257Caction%253DdriverDocument&javax.portlet.begCacheTok=com.vignette.cachetoken&javax.portlet.endCacheTok=com.vignette.cachetoken' -O - -o /dev/null | perl hpsa HPSA02 > out.d/hp_smartarray_hpsa02.csv
 
