@@ -154,6 +154,7 @@ sub enum_hpacucli {
       chomp($item->{fields}->{$1});
     }
   }
+  if ( $item ) { push @items, $item; }
 
   return @items;
 }
@@ -221,11 +222,17 @@ sub test_bios_hp {
 }
 
 sub test_bios {
-  my $bios = {
-    'vendor'  => read_file('/sys/devices/virtual/dmi/id/bios_vendor'),
-    'date'    => read_file('/sys/devices/virtual/dmi/id/bios_date'),
-    'version' => read_file('/sys/devices/virtual/dmi/id/bios_version')
-  };
+  my $bios = { };
+  if ( -e '/sys/devices/virtual/dmi/id/bios_vendor' ) {
+    $bios->{vendor}  = read_file('/sys/devices/virtual/dmi/id/bios_vendor');
+    $bios->{date}    = read_file('/sys/devices/virtual/dmi/id/bios_date');
+    $bios->{version} = read_file('/sys/devices/virtual/dmi/id/bios_version');
+  }
+  else {
+    $bios->{vendor}  = `dmidecode -s bios-vendor`;
+    $bios->{date}    = `dmidecode -s bios-release-date`;
+    $bios->{version} = `dmidecode -s bios-version`;
+  }
   chomp $bios->{vendor};
   chomp $bios->{date};
   chomp $bios->{version};
@@ -260,7 +267,6 @@ sub test_hpacucli {
           $res->{String} = "Controller firmware version $_->{version} for $_->{name} is the newest we know\n";
         }
         push @results, $res;
-#        print Dumper($res);
       }
     }
   }
